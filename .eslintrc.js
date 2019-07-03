@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    '@babel/plugin-proposal-optional-chaining'
   ],
   rules: {
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],

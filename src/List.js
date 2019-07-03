@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './App.module.css';
+import { user as coreUser } from './services/core';
 
 function List() {
+  useEffect(() => {
+    coreUser.fetchUser('?page=2').then((res) => {
+      console.log(res);
+    });
+  });
   return (
     <div className={styles.app}>
       <table className={styles.table}>
