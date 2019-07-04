@@ -1,11 +1,19 @@
 import React, { useEffect } from 'react';
+import {useConnect} from 'redux-bundler-hook'
 import styles from './App.module.css';
 import { user as coreUser } from './services/core';
 
+
 function List() {
+  const { updateUser, user} = useConnect(
+    'doUpdateUser',
+    'selectUser'
+  );
   useEffect(() => {
-    coreUser.fetchUser('?page=2').then((res) => {
+    coreUser.fetchUser(1).then((res) => {
       console.log(res);
+      updateUser(res)
+      user && console.log(user)
     });
   });
   return (

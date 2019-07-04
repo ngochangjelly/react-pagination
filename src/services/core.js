@@ -20,13 +20,13 @@ class CoreService {
       body: rawBody || (body ? JSON.stringify(body) : null),
     })
       .then((resp) => {
-        const result = (resp && resp.json().data) || resp;
+        const result = (resp && resp.json()) || resp;
         return result;
       })
       .catch(err => Promise.reject(err));
   };
 
-  fetchUser = qs => this.fetch('user', 'GET', qs);
+  fetchUser = (page) => this.fetch('user', 'GET', `?page=${page}`);
 }
 
 export default CoreService;

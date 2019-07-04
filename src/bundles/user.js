@@ -15,9 +15,6 @@ export default {
     return state;
   },
   persist: false,
-  selectUser: state => state.user,
-  selectUserToken: state => state.user.token,
-  selectUserChannels: state => state.user.channels,
-  selectIsLoggedIn: state => !!state.user.token,
+  selectUser: state => state.user || {},
   doUpdateUser: user => ({ type: 'USER_UPDATE', payload: user }),
 };
